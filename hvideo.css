@@ -1,0 +1,117 @@
+.hvideo, .hvideo * { padding:0; margin:0; }
+.hvideo { display:inline-block; }
+	.hvideo video {
+		background-color:rgb(127, 137, 147);
+		/*border:1px solid red;*/
+	}
+	.hvideo.zoomed video {
+		background-color:rgb(0,0,0);
+	}
+	.hvideo controls {
+		position:absolute;
+		z-index:1;
+		display:hidden;
+		left:0px; top:0px;
+		width:500px; height:40px;
+		/*DEBUGbackground-color:rgba(255, 255, 0, 0.2);*/
+	}
+		.hvideo controls button {
+			border:none;
+			display:block;
+			position:absolute;
+			background:transparent url('icons.png') no-repeat scroll 0 0;
+			opacity:0.6;
+		}
+		.hvideo controls button:hover {
+			opacity:0.8;
+		}
+		.hvideo controls button:active {
+			opacity:1.0;
+		}
+		.hvideo controls button.play-pause {
+			width:40px;
+			height:40px;
+			border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;
+			left:10px;
+			bottom:10px;
+			background-color:rgb(0, 0, 0);
+		}
+		.hvideo controls button.play-pause.paused {
+			background-position:0 0;
+		}
+		.hvideo controls button.play-pause.playing {
+			background-position:0 -40px;
+		}
+		.hvideo controls button.mute-audio {
+			width:20px;
+			height:20px;
+			right:40px;
+			top:10px;
+			background-color:none;
+			background-position:0 -80px;
+		}
+		.hvideo controls button.mute-audio.muted {
+			background-position:-20px -80px;
+		}
+		.hvideo controls button.zoom {
+			width:20px;
+			height:20px;
+			right:10px;
+			top:10px;
+			background-color:none;
+			background-position:0 -100px;
+		}
+		.hvideo controls button.zoom.zoomed {
+			background-position:-20px -100px;
+		}
+		.hvideo controls extended {
+			width:100px;
+			height:40px;
+			border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;
+			background:rgba(0, 0, 0, 0.6);
+			display:block;
+			position:absolute;
+			left:60px;
+			bottom:10px;
+		}
+			.hvideo controls extended bar {
+				display:block;
+				position:absolute;
+				left:10px;
+				top:10px;
+				right:70px;
+				height:20px;
+			}
+				.hvideo controls extended bar p.meta {
+					text-align:right;
+					height:20px;
+					padding-right:5px;
+					font:14px/20px helvetica,arial,sans-serif;
+					color:rgb(100,90,0);
+					cursor:default;
+				}
+				.hvideo controls extended bar.position {
+					background-color:rgb(255,255,100);
+					z-index:5;
+					overflow:hidden;
+				}
+					.hvideo controls extended bar.position p.meta {
+						white-space:nowrap;
+						overflow:hidden;
+					}
+				.hvideo controls extended bar.total {
+					/*is not visible, but only holds the total time*/
+					z-index:4;
+				}
+					.hvideo controls extended bar.total p.meta {
+						color:rgba(255,255,255,0.5);
+						text-shadow:rgb(0,0,0) 0 0 3px;
+					}
+				.hvideo controls extended bar.buffered {
+					background-color:rgba(255,255,255,0.3);
+					z-index:3;
+				}
+				.hvideo controls extended bar.unbuffered {
+					background:transparent url('bar-total.png') repeat scroll top left;
+					z-index:2;
+				}

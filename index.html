@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HTML5 video player</title>
+		<script src="jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.hvideo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="hvideo-debug.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="hvideo.css" type="text/css" media="screen" title="HTML5 video base style" charset="utf-8">
+		<script type="text/javascript" charset="utf-8">
+			$(function(){
+				$('#test1').hvideo({
+					//autoresize: true
+				});
+				// Using hvideo-debug.js we can enable logging alot of stuff to console:
+				//hvideo.debug('#test1');
+			});
+		</script>
+		<style type="text/css" media="screen">
+			body { background:#eee; }
+			#test1 { margin-top:20px; margin-left:20px; }
+		</style>
+	</head>
+	<body>
+		
+		<div id="test1" class="hvideo">
+			<controls>
+				<button class="play-pause paused" title="Toggle playback"></button>
+				<extended>
+					<bar class="position" title="Current position">
+						<p class="meta">0:00</p>
+					</bar>
+					<bar class="total">
+						<p class="meta" title="Total length">0:00</p>
+					</bar>
+					<bar class="buffered"></bar>
+					<bar class="unbuffered"></bar>
+					<button class="mute-audio" title="Mute/unmute audio"></button>
+					<button class="zoom" title="Zoom in/out"></button>
+				</extended>
+			</controls>
+			<video width="640" height="360" src="http://www.dailymotion.com/cdn/OGG-320x240/video/x99gp5_transformers640_creation?auth=1260090977-d20467f8e3d48ca04aada2e69ff9e545" autobuffer>
+				<div class="fallback">
+					You must have an HTML5 capable browser.
+				</div>
+			</video>
+		</div>
+		
+	</body>
+</html>
