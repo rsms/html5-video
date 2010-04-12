@@ -58,6 +58,9 @@ jQuery.fn.hvideo = function(options){
 			hvideo.video.pause();
 	}
 	hvideo.toggleZoomed = function(ev){
+	  if (hvideo.video.webkitEnterFullScreen !== undefined) {
+	    return hvideo.video.webkitEnterFullScreen();
+	  }
 		if (!hvideo.zoomed) {
 			// todo: in zoomed mode, hide mouse after N time of 
 			//       inactivity (track movement when playing).
@@ -327,7 +330,7 @@ jQuery.fn.hvideo = function(options){
 	}).bind('ended', function(ev){
 		this.pause();
 	}).bind('error', function(ev){
-		console.log('error! (load error)');
+		console.log('error -- failed to load video', ev);
 	}).bind('loadedmetadata', function(ev){
 		if (hvideo.autoresize) {
 			vq.width(hvideo.video.videoWidth).height(hvideo.video.videoHeight);
